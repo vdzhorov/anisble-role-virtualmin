@@ -2,3 +2,4 @@
 
 vmin_bin_location: '/sbin/virtualmin'
 vmin_download_url: 'http://software.virtualmin.com/gpl/scripts/install.sh'
+vmin_download_dest: '/tmp/install.sh'

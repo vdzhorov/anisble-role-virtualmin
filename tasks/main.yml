@@ -8,8 +8,19 @@
 - name: Download Virtualmin installation script
   get_url:
     url: '{{ vmin_download_url }}'
-    dest: '/tmp/install.sh'
+    dest: '{{ vmin_download_dest }}'
     mode: 0755
     owner: root
     group: root
   when: not virtualmin.stat.exists
+
+- name: Install Virtualmin (LAMP bundle)
+  command: '{{ vmin_download_dest }} --force --bundle {{ vmin_bundle }}'
+  when: not virtualmin.stat.exists and 'LAMP' in vmin_bundle
+
+- name: Install Virtualmin (LEMP bundle)
+  command: '{{ vmin_download_dest }} --force --bundle {{ vmin_bundle }}'
+  when: not virtualmin.stat.exists and 'LEMP' in vmin_bundle
+
+- debug:
+    msg: 'You may now login via the following address using user root and its respective password: https://{{ ansible_facts.default_ipv4.address }}:10000'
