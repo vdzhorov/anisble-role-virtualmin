@@ -1,6 +1,8 @@
 ---
 
-dependencies: []
+dependencies:
+  - src: https://github.com/vdzhorov/ansible-role-hostname.git
+    name: vdzhorov.ansible_role_hostname
 
 galaxy_info:
   author: vdzhorov
