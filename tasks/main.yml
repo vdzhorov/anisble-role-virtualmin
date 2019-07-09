@@ -24,3 +24,4 @@
 
 - debug:
     msg: 'You may now login via the following address using user root and its respective password: https://{{ ansible_facts.default_ipv4.address }}:10000'
+  when: not virtualmin.stat.exists
