@@ -2,24 +2,24 @@
 
 - name: Check is Virtualmin is already installed
   stat:
-    path: '{{ vmin_bin_location }}'
+    path: '{{ virtualmin_bin_location }}'
   register: virtualmin
 
 - name: Download Virtualmin installation script
   get_url:
-    url: '{{ vmin_download_url }}'
-    dest: '{{ vmin_download_dest }}'
+    url: '{{ virtualmin_download_url }}'
+    dest: '{{ virtualmin_download_dest }}'
     mode: 0755
     owner: root
     group: root
   when: not virtualmin.stat.exists
 
 - name: Install Virtualmin (LAMP bundle)
-  command: '{{ vmin_download_dest }} --force --bundle {{ vmin_bundle }}'
+  command: '{{ virtualmin_download_dest }} --force --bundle {{ vmin_bundle }}'
   when: not virtualmin.stat.exists and 'LAMP' in vmin_bundle
 
 - name: Install Virtualmin (LEMP bundle)
-  command: '{{ vmin_download_dest }} --force --bundle {{ vmin_bundle }}'
+  command: '{{ virtualmin_download_dest }} --force --bundle {{ vmin_bundle }}'
   when: not virtualmin.stat.exists and 'LEMP' in vmin_bundle
 
 - debug:

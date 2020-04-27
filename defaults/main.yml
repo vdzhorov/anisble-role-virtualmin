@@ -1,5 +1,5 @@
 ---
 
-vmin_bin_location: '/sbin/virtualmin'
-vmin_download_url: 'http://software.virtualmin.com/gpl/scripts/install.sh'
-vmin_download_dest: '/tmp/install.sh'
+virtualmin_bin_location: '/sbin/virtualmin'
+virtualmin_download_url: 'http://software.virtualmin.com/gpl/scripts/install.sh'
+virtualmin_download_dest: '/tmp/install.sh'
