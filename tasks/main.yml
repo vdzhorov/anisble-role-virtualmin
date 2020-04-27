@@ -15,12 +15,12 @@
   when: not virtualmin.stat.exists
 
 - name: Install Virtualmin (LAMP bundle)
-  command: '{{ virtualmin_download_dest }} --hostname {{ ansible_host }} --force --bundle {{ vmin_bundle }}'
-  when: not virtualmin.stat.exists and 'LAMP' in vmin_bundle
+  command: '{{ virtualmin_download_dest }} --hostname {{ ansible_host }} --force --bundle {{ virtualmin_bundle }}'
+  when: not virtualmin.stat.exists and 'LAMP' in virtualmin_bundle
 
 - name: Install Virtualmin (LEMP bundle)
-  command: '{{ virtualmin_download_dest }} --hostname {{ ansible_host }} --force --bundle {{ vmin_bundle }}'
-  when: not virtualmin.stat.exists and 'LEMP' in vmin_bundle
+  command: '{{ virtualmin_download_dest }} --hostname {{ ansible_host }} --force --bundle {{ virtualmin_bundle }}'
+  when: not virtualmin.stat.exists and 'LEMP' in virtualmin_bundle
 
 - debug:
     msg: 'You may now login via the following address using user root and its respective password: https://{{ ansible_facts.default_ipv4.address }}:10000'
